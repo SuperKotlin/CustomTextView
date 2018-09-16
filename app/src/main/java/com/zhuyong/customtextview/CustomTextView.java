@@ -11,16 +11,14 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
- * Created by zhuyong on 2018/9/10.
+ * Created by joy on 2018/9/10.
  */
 
 public class CustomTextView extends View {
 
     private Context mContext;
-
     private Paint mPaintText;
     private Paint mPaint;
-
     private String mText = "";//需要绘制的文字
     private int mTextColor;
     private float mTextSize;
@@ -73,7 +71,7 @@ public class CustomTextView extends View {
         int height = MeasureSpec.getSize(heightMeasureSpec);
         int size = width < height ? width : height;
         /**
-         * 这里高度要和宽度一致，这样才能保证效果
+         * 这里高度要和宽度一致，这样才能保证效果(不考虑测量模式)
          */
         setMeasuredDimension(size, size);
     }
@@ -81,22 +79,17 @@ public class CustomTextView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         /**
-         * 实现的原理，先把画布以中心点为准旋转45度，然后画文字，计算文字的高度，根据这个高度稍微再扩大一些做为背景条的高度，再画背景条(一条比较粗的直线)
+         * 实现的原理，先把画布以中心点为准旋转45度，
+         * 然后画文字，计算文字的高度，根据这个高度稍微再扩大一些做为背景条的高度，再画背景条(一条比较粗的直线)
          */
         canvas.rotate(45, getWidth() / 2, getWidth() / 2);
 
         if (!TextUtils.isEmpty(mText)) {
-            //画文字
-            float mTetxWidth = mPaintText.measureText(mText, 0, mText.length());
-
-            float dx = (getWidth() - mTetxWidth) / 2;
             Paint.FontMetricsInt fontMetricsInt = mPaintText.getFontMetricsInt();
             float dy = (fontMetricsInt.bottom - fontMetricsInt.top) / 2 - fontMetricsInt.bottom;
-
             /**
-             * 这里是设置文字的背景条的高度，根据文字的高度
+             * 这里是设置文字的背景色块的高度，根据文字的高度
              */
             float mTextBackGroundHeight = dy * 2 * mOffset;
             mPaint.setStrokeWidth(mTextBackGroundHeight);
@@ -112,6 +105,9 @@ public class CustomTextView extends View {
             float x = (float) ((Math.sqrt(2 * getWidth() * getWidth()) - getWidth()) / 2);
             canvas.drawLine(-x, startY, getWidth() + x, startY, mPaint);
 
+            //画文字
+            float mTetxWidth = mPaintText.measureText(mText, 0, mText.length());
+            float dx = (getWidth() - mTetxWidth) / 2;
             canvas.drawText(mText, dx, startY + dy, mPaintText);
         }
     }
@@ -120,5 +116,4 @@ public class CustomTextView extends View {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5f);
     }
-
 }

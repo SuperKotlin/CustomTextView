@@ -1,7 +1,7 @@
 #CustomTextView
 ## 效果演示:
 
- - 详细介绍博客：[自定义View_使用canvas画一个斜角标](http://www.jianshu.com/p/be71f6ffe512)
+ - 详细介绍博客：[自定义View_使用canvas画一个斜角标](https://www.jianshu.com/p/dcece168ae83)
 
 ![](/art/CustomTextView.png)
 
