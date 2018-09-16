@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomTextView">
+        <!--标题文字-->
+        <attr name="ct_title_name" format="string" />
+        <!--标题文字颜色-->
+        <attr name="ct_title_color" format="color" />
+        <!--标题文字大小-->
+        <attr name="ct_title_size" format="dimension" />
+        <!--标题文字背景色-->
+        <attr name="ct_title_bd_color" format="color" />
+
+    </declare-styleable>
+
+</resources>

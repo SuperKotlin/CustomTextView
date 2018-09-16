@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="搞事情搞事情搞事情搞事情搞事情搞事情搞事\n搞事情搞事情搞事情搞事情搞事情搞事情搞事"
+            android:textColor="#333333" />
+
+    </LinearLayout>
+
+    <com.zhuyong.customtextview.CustomTextView
+        android:id="@+id/ct_demo"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_gravity="right"
+        app:ct_title_bd_color="@color/colorAccent"
+        app:ct_title_color="#FFFFFF"
+        app:ct_title_size="12sp" />
+
+</android.support.v7.widget.CardView>
+
+
